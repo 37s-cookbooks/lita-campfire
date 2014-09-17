@@ -56,6 +56,7 @@ describe Campfire::Connector, lita: true do
 
         allow(room).to receive(:join)
         allow(callback).to receive(:register_users)
+        expect(callback).to receive(:start_keepalive)
         expect(callback).to receive(:listen).with(tinder_options)
         subject.join_rooms
       end
@@ -65,13 +66,14 @@ describe Campfire::Connector, lita: true do
       describe 'when I have access to the room' do
         it 'joins each room, registers the users and listens for messages' do
           allow(campfire).to receive_message_chain(:me,:id).and_return(robot_id)
-          expect(Campfire::Callback).to receive(:new).
+          allow(Campfire::Callback).to receive(:new).
             with(robot: robot, room: room, robot_id: robot_id).
             and_return(callback)
 
           expect(room).to receive(:join)
           expect(callback).to receive(:listen)
           expect(callback).to receive(:register_users)
+          expect(callback).to receive(:start_keepalive)
 
           subject.join_rooms
         end

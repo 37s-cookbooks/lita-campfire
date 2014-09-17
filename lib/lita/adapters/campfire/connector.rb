@@ -31,6 +31,9 @@ module Lita
             callback.register_users
             callback.listen(tinder_options)
           end
+          room = fetch_room(rooms.first)
+          callback = Callback.new(robot: robot, room: room, robot_id: robot_id)
+          callback.start_keepalive
         end
 
         def send_messages(room_id, messages)

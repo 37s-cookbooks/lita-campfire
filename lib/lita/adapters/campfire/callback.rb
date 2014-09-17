@@ -43,6 +43,16 @@ module Lita
           end
         end
 
+        def start_keepalive
+          Thread.new {
+            timer = Timer.new(interval: 150, recurring: true){|timer|
+              users = @room.users.map{|u| u.name}.flatten.compact.join(", ")
+              Lita.logger.debug(users)
+            }
+            timer.start
+          }
+        end
+
         class EventReceiver
 
           class << self
