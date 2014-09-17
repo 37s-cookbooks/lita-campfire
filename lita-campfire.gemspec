@@ -1,11 +1,11 @@
 Gem::Specification.new do |spec|
   spec.name          = 'lita-campfire'
-  spec.version       = '0.2.1'
-  spec.authors       = ['Jose Luis Salas', 'Zac Stewart']
-  spec.email         = ['josacar@gmail.com', 'zgstewart@gmail.com']
+  spec.version       = '0.2.2'
+  spec.authors       = ['Jose Luis Salas', 'Zac Stewart', 'Nathan Anderson']
+  spec.email         = ['josacar@gmail.com', 'zgstewart@gmail.com', 'andnat@gmail.com']
   spec.description   = %q{A Campfire adapter for Lita.}
   spec.summary       = %q{A Campfire adapter for the Lita chat robot.}
-  spec.homepage      = 'https://github.com/josacar/lita-campfire'
+  spec.homepage      = 'https://github.com/37s-cookbooks/lita-campfire'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files`.split($/)
